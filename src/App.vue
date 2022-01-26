@@ -1,18 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button 
+      id="test" 
+      @click="myMetd"
+    >
+      Button that causes memory leaks
+    </button>
+
+    <div v-for="item in 1000" v-bind:key="item">
+      <MyComponent />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyComponent from './MyComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    MyComponent
+  },
+  methods: {
+    myMetd() {
+      console.log('hi from method :)');
+    },
+  },
+  mounted() {
+    // document.getElementById('test').addEventListener('click',this.myMetd);
+  },
+  beforeDestroy() {
+    // document.getElementById('test').removeEventListener('click',this.myMetd);
+    console.log('destroyed');
+  },
 }
 </script>
 
