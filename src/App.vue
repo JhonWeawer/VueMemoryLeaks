@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <button 
       id="test" 
       @click="myMetd"
