@@ -28,8 +28,9 @@ export default {
   },
   mounted() {
     // document.getElementById('test').addEventListener('click',this.myMetd);
+    console.log('mounted')
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // document.getElementById('test').removeEventListener('click',this.myMetd);
     console.log('destroyed');
   },
